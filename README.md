@@ -75,6 +75,7 @@ From the root folder of the project:
 ```
 streamlit run app/Home.py  --server.port 8010 
 ```
+***IMPORTANT*** The web UI will run, but will NOT function correctly outside of the docker setup described in this README.
 
 ### Docker
 
