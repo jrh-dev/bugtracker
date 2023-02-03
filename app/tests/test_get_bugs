@@ -1,0 +1,30 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.28.2
+    method: GET
+    uri: http://127.0.0.1:8000/bugs/?skip=0&limit=100
+  response:
+    body:
+      string: '[{"title":"string","description":"string","is_open":true,"owner_id":1,"id":1,"time_created":"2023-02-03T16:22:46"},{"title":"title","description":"desc","is_open":true,"owner_id":1,"id":2,"time_created":"2023-02-03T16:49:40"},{"title":"title","description":"desc","is_open":true,"owner_id":1,"id":3,"time_created":"2023-02-03T16:49:48"},{"title":"string","description":"string","is_open":true,"owner_id":1,"id":4,"time_created":"2023-02-03T16:56:21"},{"title":"string","description":"string","is_open":true,"owner_id":1,"id":5,"time_created":"2023-02-03T16:57:08"}]'
+    headers:
+      content-length:
+      - '565'
+      content-type:
+      - application/json
+      date:
+      - Fri, 03 Feb 2023 16:57:08 GMT
+      server:
+      - uvicorn
+    status:
+      code: 200
+      message: OK
+version: 1
