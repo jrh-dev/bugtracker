@@ -87,3 +87,5 @@ The project currently provides a minimum viable product able to fit the brief, w
 * User authentication, and additional data fields would typically be included in a fully featured bug tracker, as well as the ability to delete bugs and users. This functionality was not included due to the time limited nature of the project and it not being expressed as a requirement.
 
 * Included tests ensure the core functionality, but would be developed into a more comprehensive suite of tests were the project developed further. In particular, integration tests would be an important consideration.
+
+* Input validation is only focused on type, for example it is possible to create records with blank data fields. With additional time full input validation, including testing for duplicates would be added.
