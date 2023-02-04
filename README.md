@@ -21,67 +21,46 @@ Features include;
 
 * Update users :thumbsup:
 
-## Installation
+## Usage
 
-Preferred usage is with docker. 
-
-### Manual 
-The project should be compatible with most linux distributions, tested on kubuntu 22.10.
-
-From the project root; 
-
-*Install dependencies*
-```
-$ pip install -r requirements.txt
-```
+The preferred usage method is to utilise docker, though details of how to start the API and web UI manually are described below. All commands should be executed from the root directory of the project.
 
 ### Docker
 
-The API;
+To build the containers:
+
 ```
-$ docker build --no-cache -t bugtrackerapi -f api/Dockerfile .
+docker compose build --no-cache
 ```
 
-The web app;
-```
-$ docker build --no-cache -t bugtrackerapp -f app/Dockerfile .
-```
+To start and attach the containers;
 
-Create a network bridge to allow communication between the containers;
 ```
-docker network create bugtracker-bridge
+docker compose up
 ```
 
-## Starting the API
 
-### Manual
+### Manual 
 
-From the root folder of the project:
+The project should be compatible with most linux distributions; developed on kubuntu 22.10.
+
+Install dependencies;
+```
+pip install -r requirements.txt
+```
+
+Start the API;
 ```
 uvicorn api:app --host 0.0.0.0 --port 8000
 ```
 
-### Docker
-
-```
-$ docker run -it --rm --net bugtracker-bridge -p 8000:8000 -e SERVER_HOST=0.0.0.0 -e SERVER_PORT=8000 --name bugtrackerapi bugtrackerapi:latest
-```
-
-## Starting the web app
-
-### Manual
-
-From the root folder of the project:
+Start the web app;
 ```
 streamlit run app/Home.py  --server.port 8010 
 ```
+
 ***IMPORTANT*** The web UI will run, but will NOT function correctly outside of the docker setup described in this README.
 
-### Docker
-
-```
-$ docker run -it --rm --net bugtracker-bridge -p 8010:8010 -e SERVER_HOST=0.0.0.0 -e SERVER_PORT=8010 --name bugtrackerapp bugtrackerapp:latest
-```
 
 ## Using the API
 
@@ -90,6 +69,10 @@ Once started, the API documentation can be accessed at [localhost:8080/docs](loc
 ## Using the web app
 
 Once started, the web app can be accessed at [localhost:8010](localhost:8010).
+
+The applications initialise with a fresh database and as such do not contain records of any users or bugs. Users are encouraged to add both using either the API endpoints or the web app.
+
+Please note that as a bug must be associated with a user, at least one user must be created before a bug can be created.
 
 ## Limitations
 

@@ -4,7 +4,7 @@ WORKDIR /app
 
 ADD requirements.txt .
 
-ADD app app
+ADD . app
 
 RUN pip install --no-cache-dir -r requirements.txt
 

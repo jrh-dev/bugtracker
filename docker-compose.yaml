@@ -1,0 +1,21 @@
+services:
+  api:
+    container_name: bugtrackerapi
+    build: ./api/
+    command: "uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload"
+    ports:
+      - "8000:8000"
+    networks:
+      - default
+  app:
+    container_name: bugtrackerapp
+    build: ./app/
+    command: "streamlit run app/Home.py  --server.port 8010"
+    ports:
+      - "8010:8010"
+    networks:
+      - default
+networks:
+  default:
+    name: bugtracker-bridge
+    external: true
