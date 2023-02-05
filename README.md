@@ -91,3 +91,5 @@ The project currently provides a minimum viable product able to fit the brief, w
 * Input validation is only focused on type, for example it is possible to create records with blank data fields. With additional time full input validation, including testing for duplicates would be added.
 
 * Logging is implemented for the API but time limitations prevented expansion to the web UI. Further development would expand the logging functionality.
+
+* The database file `api_db.db` (if present) must be removed before running tests. 
