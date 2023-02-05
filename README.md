@@ -89,3 +89,5 @@ The project currently provides a minimum viable product able to fit the brief, w
 * Included tests ensure the core functionality, but would be developed into a more comprehensive suite of tests were the project developed further. In particular, integration tests would be an important consideration.
 
 * Input validation is only focused on type, for example it is possible to create records with blank data fields. With additional time full input validation, including testing for duplicates would be added.
+
+* Logging is implemented for the API but time limitations prevented expansion to the web UI. Further development would expand the logging functionality.
