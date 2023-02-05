@@ -1,6 +1,9 @@
 import streamlit as st
 import pandas as pd
 from interface import DBI
+import logging
+
+logging.basicConfig(filename="app.log", level=logging.INFO)
 
 dbi = DBI('http://bugtrackerapi:8000')
 
@@ -32,7 +35,7 @@ if len(udat):
             open = st.selectbox('Is open?', options=('true', 'false'))
 
             assign = st.selectbox(
-                'Assigned to', options=tuple(udat['User ID'].values))
+                'Assigned to (user ID)', options=tuple(udat['User ID'].values))
             submitted = st.form_submit_button("Add")
             if submitted:
                 dbi.create_bug(title, desc, open, assign)
@@ -74,7 +77,7 @@ if len(udat) and len(bdat):
             )
 
             assign = st.selectbox(
-                'Assigned to',
+                'Assigned to (user ID)',
                 options=tuple(udat['User ID'].values),
                 index=tuple(udat['User ID'].values).index(
                     int(bdat.loc[bdat['Bug ID'] == sel]['Assigned to'].values[0]))

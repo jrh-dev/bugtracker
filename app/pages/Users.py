@@ -1,6 +1,9 @@
 import streamlit as st
 import pandas as pd
 from interface import DBI
+import logging
+
+logging.basicConfig(filename="app.log", level=logging.INFO)
 
 dbi = DBI('http://bugtrackerapi:8000')
 
