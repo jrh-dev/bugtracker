@@ -64,7 +64,7 @@ streamlit run app/Home.py  --server.port 8010
 
 ## Using the API
 
-Once started, the API documentation can be accessed at [localhost:8080/docs](localhost:8080/docs).
+Once started, the API documentation can be accessed at [localhost:8000/docs](localhost:8000/docs).
 
 ## Using the web app
 
